@@ -1,0 +1,7 @@
+install pyautogui, python_imagesearch, pyqt5, pyqt5-tools
+
+Windows commandline:
+pip install pyautogui
+pip install python-imagesearch
+pip install pyqt5
+pip install pyqt5-tools
