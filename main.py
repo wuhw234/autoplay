@@ -18,6 +18,5 @@ def main():
     win.show()
     # Run the event loop
     sys.exit(app.exec_())
-
 if __name__ == "__main__":
     main()

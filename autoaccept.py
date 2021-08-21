@@ -19,7 +19,7 @@ def inQueue():
 
 def autoAccept():
     while True:
-        pos = imagesearch("./accept.png")
+        pos = imagesearch("images/accept.png")
         if not pos[0] == -1:
             pyautogui.click(pos[0], pos[1])
             break
@@ -28,24 +28,24 @@ def autoAccept():
 
 def accepted():
     while True:
-        accepted = imagesearch("./accepted.png") 
+        accepted = imagesearch("images/accepted.png") 
         if accepted[0] == -1:                    # if the screen changes from the accepted screen, break
             break
     time.sleep(1)
-    pos = imagesearch("./inqueue.png")           # if you are back in queue, then call autoaccept
+    pos = imagesearch("images/inqueue.png")           # if you are back in queue, then call autoaccept
     if not pos[0] == -1:
         autoAccept()
     else:
         return
 
 def dodge():
-    dodge = imagesearch("./inqueue.png")
+    dodge = imagesearch("images/inqueue.png")
     if dodge[0] != -1:
         return True
     return False
 
 def inGame():
-    inGame = imagesearch("./ingame.png")
+    inGame = imagesearch("images/ingame.png")
     if inGame[0] != -1:
         return True
     return False
