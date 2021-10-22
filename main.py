@@ -12,7 +12,7 @@ def main():
     # Connect to the database before creating any window
     if not createConnection("accounts.sqlite"):
         sys.exit(1)
-        print("Error")
+
     # Create the main window if the connection succeeded
     win = Window()
     win.show()

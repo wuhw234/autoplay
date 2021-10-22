@@ -5,7 +5,7 @@ from sys import platform
 from autoaccept import inQueue
 pyautogui.FAILSAFE = False
 
-def login(username, password): #todo - return false if it fails
+def login(username, password):
 
     uname = imagesearch_loop("images/username.png", 3)
     pyautogui.click(uname[0], uname[1])
@@ -34,12 +34,17 @@ def login(username, password): #todo - return false if it fails
 def play(mode, primary, secondary, autoPlay):
     if not autoPlay:
         return
-    play = imagesearch_loop("images/play.png", 1, 0.9)
+    play = imagesearch("images/play.png")
+    while play[0] == -1:
+        time.sleep(1)
+        play = imagesearch("images/play.png")
+    pyautogui.click(play[0], play[1])
     x = imagesearch("images/rankedsolo.png")
     pvp = imagesearch("images/pvp.png")
-    pyautogui.click(pvp[0], pvp[1])
+    if pvp[0] != -1:
+        pyautogui.click(pvp[0], pvp[1])
     while x[0] == -1:
-        pyautogui.click(play[0], play[1])
+        time.sleep(1)
         x = imagesearch("images/rankedsolo.png")
 
     if (mode == "Ranked Solo/Duo"):

@@ -114,9 +114,9 @@ class Window(QMainWindow):
         password= self.table.model().data(self.table.model().index(row, 3))
 
         if self.createFile() == True:
+            self.close()
             if login(username, password):
                 play(self.mode, self.primary, self.secondary, self.autoPlay)
-                self.close()
             else:
                 messageBox = QMessageBox.critical(
                 self,
