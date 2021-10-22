@@ -1,1 +1,0 @@
-This project allows users to use a GUI to store their league of legends accounts in a local SQLite database and automatically log in and queue for a game, and accept when a match is found. Run main.py to start the program, run autoaccept.py to automatically accept if a match is found.
