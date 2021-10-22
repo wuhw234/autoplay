@@ -7,6 +7,7 @@ pyautogui.FAILSAFE = True
 import os
 
 def login(username, password):
+    """Automatically logs user in using the selected credentials"""
     print(os.path.dirname(os.path.realpath(__file__)))
 
     uname = imagesearch_loop("autoplay/images/username.png", 3)
@@ -34,17 +35,20 @@ def login(username, password):
     return True
 
 def play(mode, primary, secondary, autoPlay):
+    """Navigates the LOL client and queues account for a game"""
     if not autoPlay:
         return
     play = imagesearch("autoplay/images/play.png")
     while play[0] == -1:
         time.sleep(1)
         play = imagesearch("autoplay/images/play.png")
-    pyautogui.click(play[0], play[1])
     x = imagesearch("autoplay/images/rankedsolo.png")
     pvp = imagesearch("autoplay/images/pvp.png")
-    if pvp[0] != -1:
-        pyautogui.click(pvp[0], pvp[1])
+    while pvp[0] == -1:
+        time.sleep(1)
+        pyautogui.click(play[0], play[1])
+        pvp = imagesearch("autoplay/images/pvp.png")
+    pyautogui.click(pvp[0], pvp[1])
     while x[0] == -1:
         time.sleep(1)
         x = imagesearch("autoplay/images/rankedsolo.png")

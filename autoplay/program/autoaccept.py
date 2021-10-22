@@ -5,6 +5,8 @@ from sys import platform
 pyautogui.FAILSAFE = False 
 
 def inQueue():
+    """Runs while user is in queue waiting for match, calls
+    autoAccept to accept a match if it is found"""
     while True:
         autoAccept()
         print("in champ select")
@@ -18,6 +20,7 @@ def inQueue():
                 inQueue()
 
 def autoAccept():
+    """Automatically accepts a match if it is found"""
     while True:
         pos = imagesearch("autoplay/images/accept.png")
         if not pos[0] == -1:
@@ -27,6 +30,7 @@ def autoAccept():
     accepted()
 
 def accepted():
+    """Checks if the user enters champion selection after a match is accepted"""
     while True:
         accepted = imagesearch("autoplay/images/accepted.png") 
         if accepted[0] == -1:                    # if the screen changes from the accepted screen, break
@@ -39,12 +43,14 @@ def accepted():
         return
 
 def dodge():
+    """Runs when user fails to get into a match"""
     dodge = imagesearch("autoplay/images/inqueue.png")
     if dodge[0] != -1:
         return True
     return False
 
 def inGame():
+    """Runs when user successfully enters a game"""
     inGame = imagesearch("autoplay/images/ingame.png")
     if inGame[0] != -1:
         return True

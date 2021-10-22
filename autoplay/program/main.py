@@ -6,7 +6,9 @@ from database import createConnection
 from accountsgui import Window
 
 def main():
-    """Accounts main function."""
+    """This program allows users to store their accounts on a local database and
+    automatically log into their accounts, navigate the league client,
+     queue for a game, and accept the queue."""
     # Create the application
     app = QApplication(sys.argv)
     # Connect to the database before creating any window

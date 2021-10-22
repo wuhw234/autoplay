@@ -33,7 +33,6 @@ from os import path
 class Window(QMainWindow):
     """Main Window."""
     def __init__(self, parent=None):
-        """Initializer."""
         super().__init__(parent)
         self.setWindowTitle("Account List")
         self.resize(480, 400)
@@ -98,6 +97,7 @@ class Window(QMainWindow):
         if messageBox == QMessageBox.Ok:
             self.accountsModel.deleteAccount(row)
     def setMode(self):
+        """Select the game mode to play"""
         getMode = AddMode(self)
         if getMode.exec() ==QDialog.Accepted:
             self.mode = getMode.mode
@@ -106,12 +106,12 @@ class Window(QMainWindow):
             self.autoPlay = getMode.autoPlay
     
     def playAccount(self):
-
+        """Allows users to automatically log in on selected account"""
         row = self.table.currentIndex().row()
         if row < 0:
             return
-        username= self.table.model().data(self.table.model().index(row, 2))
-        password= self.table.model().data(self.table.model().index(row, 3))
+        username = self.table.model().data(self.table.model().index(row, 2))
+        password = self.table.model().data(self.table.model().index(row, 3))
 
         if self.createFile() == True:
             self.close()
@@ -122,16 +122,12 @@ class Window(QMainWindow):
                 self,
                 "Error:",
                 "Invalid account credentials",
-                QMessageBox.Ok | QMessageBox.Cancel,
-            
+                QMessageBox.Ok | QMessageBox.Cancel,    
                 )
+                return
             
-
-
-        # self.logIn(username, password)
-        # create function that takes username and password and logs in
-
     def createFile(self):
+        """Allows users to input their file path to their league of legends program"""
         if not path.exists("leaguepath.txt"):
             leaguePath = AddPath(self)
             if leaguePath.exec() == QDialog.Accepted:
@@ -167,7 +163,7 @@ class Window(QMainWindow):
         return True
         
 class AddPath(QDialog):
-    """Add Path dialog."""
+    """GUI for the user entering their path to their LOL program"""
     def __init__(self, parent=None):
         """Initializer."""
         super().__init__(parent=parent)
@@ -221,7 +217,7 @@ class AddPath(QDialog):
         super().accept()
 
 class AddMode(QDialog):
-    """Add Path dialog."""
+    """GUI for users selecting the game mode they wish to play"""
     def __init__(self, parent=None):
         """Initializer."""
         super().__init__(parent=parent)
@@ -238,7 +234,6 @@ class AddMode(QDialog):
 
     def setupUI(self):
         """Setup the Add Path dialog's GUI."""
-        # Create line edits for data fields
         self.primaryBox = QComboBox()
         self.primaryBox.addItem("Mid")
         self.primaryBox.addItem("Top")
@@ -263,7 +258,6 @@ class AddMode(QDialog):
         self.playBox.setText("Automatically start playing after login")
         self.playBox.setChecked(True)
 
-        # Lay out the data fields
         layout = QFormLayout()
         layout.addRow("Mode:", self.gameModeBox)
         layout.addRow("Primary Role:", self.primaryBox)
