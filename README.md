@@ -1,4 +1,4 @@
- ![Poro!](https://cdna.artstation.com/p/assets/images/images/012/681/966/large/ernest-liu-poro-deviantart.jpg?1536003456 "Cute poro")
+<img src="https://cdna.artstation.com/p/assets/images/images/012/681/966/large/ernest-liu-poro-deviantart.jpg?1536003456" alt=Cute poro" width=200px height=200px />
 # Autoplay! #
 
 * This program allows users to store accounts on a local SQLite database and automatically logs in,
