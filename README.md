@@ -1,4 +1,4 @@
-<img src="https://cdna.artstation.com/p/assets/images/images/012/681/966/large/ernest-liu-poro-deviantart.jpg?1536003456" alt="Cute poro" width="350px" height="200px" />
+<img src="https://cdna.artstation.com/p/assets/images/images/012/681/966/large/ernest-liu-poro-deviantart.jpg?1536003456" alt="Cute poro" width="300px" height="200px" />
 
 # Autoplay! #
 
