@@ -1,3 +1,4 @@
+ ![Poro!](https://cdna.artstation.com/p/assets/images/images/012/681/966/large/ernest-liu-poro-deviantart.jpg?1536003456 "Cute poro")
 # Autoplay! #
 
 * This program allows users to store accounts on a local SQLite database and automatically logs in,
