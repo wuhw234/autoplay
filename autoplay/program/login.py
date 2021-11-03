@@ -3,7 +3,6 @@ from python_imagesearch.imagesearch import imagesearch, imagesearch_loop
 import time
 from sys import platform
 from autoaccept import inQueue
-pyautogui.FAILSAFE = True
 import os
 
 def login(username, password):
